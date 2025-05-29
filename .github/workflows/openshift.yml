@@ -12,6 +12,7 @@ env:
   OPENSHIFT_NAMESPACE: "anna-bajnok-dev"
 
   APP_PORT: "8080"
+  DOCKER_API_VERSION: "1.22"  # Set API version here
 
 on:
   # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
