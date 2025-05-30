@@ -20,7 +20,7 @@ on:
 jobs:
   build-and-push: 
     name: Build and push to github container registry
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     environment: development
 
     outputs:
@@ -31,14 +31,6 @@ jobs:
     - name: Checkout
       id: checkout
       uses: actions/checkout@v2
-
-    
-
-    - name: Remove podman 
-      run: |
-        # Remove old Podman (if it exists)
-        sudo apt-get remove -y podman
-
 
 
     - name: Debug Host Environment
