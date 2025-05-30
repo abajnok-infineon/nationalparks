@@ -38,6 +38,12 @@ jobs:
         sudo apt-get install -y podman
         podman --version
 
+    - name: Install Podman Docker Compatibility
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y podman-docker
+
+
    # https://github.com/redhat-actions/s2i-build#readme
     - name: S2I Build 
       id: build_image
