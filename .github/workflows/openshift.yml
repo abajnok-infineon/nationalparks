@@ -34,19 +34,12 @@ jobs:
 
     
 
-    - name: Install Latest Podman from Official Repository
+    - name: Remove podman 
       run: |
         # Remove old Podman (if it exists)
         sudo apt-get remove -y podman
 
-        # Add the official Podman repository
-        source /etc/os-release
-        echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$VERSION_CODENAME/ /" | sudo tee /etc/apt/sources.list.d/devel_kubic_libcontainers_stable.list > /dev/null
-        curl -fsSL https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$VERSION_CODENAME/Release.key | sudo gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg
-        # Update system and install latest Podman
-        sudo apt-get update
-        sudo apt-get install -y podman
-        podman --version
+
 
     - name: Debug Host Environment
       run: |
