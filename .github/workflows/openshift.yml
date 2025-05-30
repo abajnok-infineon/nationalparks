@@ -34,8 +34,17 @@ jobs:
 
     
 
-    - name: Update Podman
+    - name: Install Latest Podman from Official Repository
       run: |
+        # Remove old Podman (if it exists)
+        sudo apt-get remove -y podman
+
+        # Add the official Podman repository
+        source /etc/os-release
+        echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$VERSION_CODENAME/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+        curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$VERSION_CODENAME/Release.key | sudo apt-key add -
+
+        # Update system and install latest Podman
         sudo apt-get update
         sudo apt-get install -y podman
         podman --version
