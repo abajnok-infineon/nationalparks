@@ -20,7 +20,7 @@ on:
 jobs:
   build-and-push: 
     name: Build and push to github container registry
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-23.04
     environment: development
 
     outputs:
