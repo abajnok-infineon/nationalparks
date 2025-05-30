@@ -45,8 +45,8 @@ jobs:
       run: |
         cat /etc/os-release  # Verify the OS version
         docker --version     # Check Docker version
-        podman --version     # Check Podman version
-        podman info          # Inspect Podman setup
+        # podman --version     # Check Podman version
+        # podman info          # Inspect Podman setup
         curl --unix-socket /var/run/docker.sock http://localhost/version | jq  # Check Docker API version
 
 
