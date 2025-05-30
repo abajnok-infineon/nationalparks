@@ -20,7 +20,7 @@ on:
 jobs:
   build-and-push: 
     name: Build and push to github container registry
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     environment: development
 
     outputs:
@@ -31,6 +31,15 @@ jobs:
     - name: Checkout
       id: checkout
       uses: actions/checkout@v2
+
+    - name: Debug Host Environment
+      run: |
+        cat /etc/os-release  # Verify the OS version
+        docker --version     # Check Docker version
+        podman --version     # Check Podman version
+        podman info          # Inspect Podman setup
+        curl --unix-socket /var/run/docker.sock http://localhost/version | jq  # Check Docker API version
+
 
     - name: Update Podman
       run: |
