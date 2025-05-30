@@ -1,5 +1,5 @@
 name: OpenShift 
-
+# here we gooo
 env: 
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
   REGISTRY_USER: ${{ github.actor }}
